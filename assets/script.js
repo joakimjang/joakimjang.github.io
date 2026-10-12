@@ -20,14 +20,14 @@ const translations = {
     principlesEyebrow:"OUR APPROACH",principlesTitle:"정보의 양보다, 적합성과 근거를.",principlesLead:"글로벌 비즈니스의 첫 단계는 더 많은 기업을 보는 것이 아니라, 필요한 기업을 제대로 이해하는 것입니다.",
     principle1Title:"Need-first",principle1Text:"고객의 실제 사업 목적과 요구조건에서 조사를 시작합니다.",principle2Title:"Evidence-based",principle2Text:"가능한 정보의 출처와 확인 범위를 명확히 합니다.",principle3Title:"Flexible by design",principle3Text:"고객이 필요한 서비스 단계와 범위를 선택할 수 있습니다.",
     contactEyebrow:"START WITH A BUSINESS NEED",contactTitle:"어떤 파트너를 찾고 계십니까?",contactLead:"찾으려는 제품·기술·기업 유형과 목표 시장을 알려주세요. 요구사항을 검토해 적합한 조사 범위와 서비스 단계를 제안하겠습니다.",
-    contactAssurance:"문의 내용은 프로젝트 범위를 검토하기 위한 자료로 사용됩니다. 실제 접수·이메일 발송 기능은 배포 전 별도로 연결해야 합니다.",
-    formDirectionLabel:"사업 방향",formInbound:"해외 고객 → 한국 기업",formOutbound:"한국 고객 → 해외 기업",formPartnerLabel:"찾는 파트너 유형",
+    contactAssurance:"문의는 이메일 접수 서비스로 전달됩니다. 최초 1회 이메일 인증이 필요하며, 개인정보는 문의 처리 목적으로만 입력해 주세요.",
+    formNameLabel:"이름 / 회사명",formNamePlaceholder:"이름 또는 회사명",formEmailLabel:"이메일",formEmailPlaceholder:"name@company.com",formDirectionLabel:"사업 방향",formInbound:"해외 고객 → 한국 기업",formOutbound:"한국 고객 → 해외 기업",formPartnerLabel:"찾는 파트너 유형",
     partnerSupplier:"공급처·제조사",partnerBuyer:"바이어·수입사·유통사",partnerTechnology:"기술·공동개발 파트너",partnerBusiness:"기타 사업 파트너",
     formIndustryLabel:"제품·기술·산업",formIndustryPlaceholder:"예: 산업용 부품",formMarketLabel:"목표 국가·시장",formMarketPlaceholder:"예: 독일, 미국",
     formStageLabel:"필요한 서비스",stageSearch:"Search — 후보 조사",stageVerify:"Verify — 추가 검증",stageConnect:"Connect — 접촉 및 미팅",stageSupport:"Support — 지속 지원",stageConsult:"상담 후 결정",
-    formDetailsLabel:"요구사항",formDetailsPlaceholder:"제품 규격, 수량, 구매 목적, 희망 일정 등을 적어주세요.",formSubmit:'문의 내용 만들기 <span aria-hidden="true">↗</span>',formHelp:"제출 버튼을 누르면 문의 내용이 정리됩니다. 이 MVP는 아직 서버로 전송하지 않습니다.",
+    formDetailsLabel:"요구사항",formDetailsPlaceholder:"제품 규격, 수량, 구매 목적, 희망 일정 등을 적어주세요.",formSubmit:'문의 보내기 <span aria-hidden="true">↗</span>',formHelp:"문의 내용은 이메일 접수 서비스로 전송됩니다. 첫 제출 시 수신 이메일 인증이 필요할 수 있습니다.",
     closingEyebrow:"C-CUBE NICHERESOURCE",closingTitle:"Find the need. Discover the partner.",closingCta:'사업 수요 전달하기 <span>↗</span>',footerText:"글로벌 기업 발굴 · 검증 · 연결 · 거래지원",disclaimer:"조사 결과는 확보 가능한 정보와 합의된 조사 범위에 기반합니다. 공급능력, 제3자의 회신 또는 거래 성사를 보장하지 않습니다.",
-    statusReady:"문의 내용이 아래에 정리되었습니다. 복사하여 이메일 또는 별도 문의 채널로 보내세요.",statusCopied:"문의 내용이 복사되었습니다.",statusCopyFail:"문의 내용이 표시되었습니다. 내용을 선택해 복사해 주세요.",
+    statusReady:"문의가 전송되었습니다.",statusCopied:"문의가 전송되었습니다.",statusCopyFail:"문의 전송에 실패했습니다. 잠시 후 다시 시도해 주세요.",
     dirInbound:"해외 고객 → 한국 기업",dirOutbound:"한국 고객 → 해외 기업",typeSupplier:"공급처·제조사",typeBuyer:"바이어·수입사·유통사",typeTechnology:"기술·공동개발 파트너",typeBusiness:"기타 사업 파트너",stSearch:"후보 조사",stVerify:"추가 검증",stConnect:"접촉 및 미팅",stSupport:"지속 지원",stConsult:"상담 후 결정"
   },
   en: {
@@ -51,14 +51,14 @@ const translations = {
     principlesEyebrow:"OUR APPROACH",principlesTitle:"Relevance and evidence over volume.",principlesLead:"Global business starts not with the largest list of companies, but with a clear understanding of the right ones.",
     principle1Title:"Need-first",principle1Text:"We begin with your actual business objective and requirements.",principle2Title:"Evidence-based",principle2Text:"We make information sources and verification scope clear.",principle3Title:"Flexible by design",principle3Text:"You choose the service stage and scope that fit your needs.",
     contactEyebrow:"START WITH A BUSINESS NEED",contactTitle:"What kind of partner are you looking for?",contactLead:"Tell us about the product, technology, company type, and target market. We will review your requirements and suggest an appropriate research scope and service level.",
-    contactAssurance:"Your inquiry helps us assess the project scope. Live submission and email delivery must be connected separately before launch.",
-    formDirectionLabel:"Business direction",formInbound:"Overseas client → Korean companies",formOutbound:"Korean client → overseas companies",formPartnerLabel:"Partner type",
+    contactAssurance:"Inquiries are routed through an email form service. One-time email verification may be required. Please provide personal information only for handling this inquiry.",
+    formNameLabel:"Name / Company",formNamePlaceholder:"Your name or company",formEmailLabel:"Email address",formEmailPlaceholder:"name@company.com",formDirectionLabel:"Business direction",formInbound:"Overseas client → Korean companies",formOutbound:"Korean client → overseas companies",formPartnerLabel:"Partner type",
     partnerSupplier:"Supplier or manufacturer",partnerBuyer:"Buyer, importer, or distributor",partnerTechnology:"Technology or co-development partner",partnerBusiness:"Other business partner",
     formIndustryLabel:"Product, technology, or industry",formIndustryPlaceholder:"e.g. industrial components",formMarketLabel:"Target country or market",formMarketPlaceholder:"e.g. Germany, United States",
     formStageLabel:"Service needed",stageSearch:"Search — company research",stageVerify:"Verify — further qualification",stageConnect:"Connect — outreach and meetings",stageSupport:"Support — ongoing assistance",stageConsult:"Discuss and decide",
-    formDetailsLabel:"Requirements",formDetailsPlaceholder:"Share specifications, quantity, business objective, timeline, and other criteria.",formSubmit:'Prepare Inquiry <span aria-hidden="true">↗</span>',formHelp:"Submit will prepare an inquiry summary. This MVP does not yet send data to a server.",
+    formDetailsLabel:"Requirements",formDetailsPlaceholder:"Share specifications, quantity, business objective, timeline, and other criteria.",formSubmit:'Send Inquiry <span aria-hidden="true">↗</span>',formHelp:"Your inquiry is sent through an email form service. The first submission may require recipient email verification.",
     closingEyebrow:"C-CUBE NICHERESOURCE",closingTitle:"Find the need. Discover the partner.",closingCta:'Submit a Business Need <span>↗</span>',footerText:"Global discovery · Evaluation · Connection · Business support",disclaimer:"Research is based on available information and the agreed scope. Supplier performance, third-party responses, and successful transactions are not guaranteed.",
-    statusReady:"Your inquiry summary is ready. Copy it into an email or your preferred contact channel.",statusCopied:"Inquiry text copied.",statusCopyFail:"Your inquiry is shown below. Select and copy the text.",
+    statusReady:"Your inquiry has been submitted.",statusCopied:"Your inquiry has been submitted.",statusCopyFail:"Submission failed. Please try again shortly.",
     dirInbound:"Overseas client → Korean companies",dirOutbound:"Korean client → overseas companies",typeSupplier:"Supplier or manufacturer",typeBuyer:"Buyer, importer, or distributor",typeTechnology:"Technology or co-development partner",typeBusiness:"Other business partner",stSearch:"Company research",stVerify:"Further qualification",stConnect:"Outreach and meetings",stSupport:"Ongoing support",stConsult:"Discuss and decide"
   }
 };
@@ -104,26 +104,5 @@ document.querySelectorAll("[data-direction]").forEach(link => {
   });
 });
 
-document.getElementById("inquiryForm").addEventListener("submit", async event => {
-  event.preventDefault();
-  const form = new FormData(event.currentTarget);
-  const t = translations[currentLang];
-  const text = [
-    "C-Cube NicheResource — Business Inquiry",
-    `${t.formDirectionLabel}: ${form.get("direction") === "inbound" ? t.dirInbound : t.dirOutbound}`,
-    `${t.formPartnerLabel}: ${({supplier:t.typeSupplier,buyer:t.typeBuyer,technology:t.typeTechnology,business:t.typeBusiness})[form.get("partnerType")]}`,
-    `${t.formIndustryLabel}: ${form.get("industry") || "-"}`,
-    `${t.formMarketLabel}: ${form.get("market") || "-"}`,
-    `${t.formStageLabel}: ${({search:t.stSearch,verify:t.stVerify,connect:t.stConnect,support:t.stSupport,consult:t.stConsult})[form.get("stage")]}`,
-    `${t.formDetailsLabel}: ${form.get("details") || "-"}`
-  ].join("\n");
-  const status = document.getElementById("formStatus");
-  status.textContent = text + "\n\n" + t.statusReady;
-  try {
-    await navigator.clipboard.writeText(text);
-    status.textContent = t.statusCopied + "\n\n" + text;
-  } catch (_) {
-    status.textContent = t.statusCopyFail + "\n\n" + text;
-  }
-});
+// The inquiry form uses a hosted form endpoint (FormSubmit) to deliver submissions by email.
 document.getElementById("year").textContent = new Date().getFullYear();
