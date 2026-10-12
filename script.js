@@ -1,671 +1,129 @@
-:root {
-  --bg: #f4f1ea;
-  --paper: #f8f6f1;
-  --ink: #111111;
-  --muted: #5e5a56;
-  --line: rgba(17, 17, 17, 0.16);
-  --card: #ffffff;
-  --accent: #0d1f2d;
-  --accent-soft: #dfeaf1;
-  --gold: #d9b26f;
-  --shadow: 0 18px 45px rgba(17, 17, 17, 0.08);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-input,
-select,
-textarea {
-  font: inherit;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-.topbar {
-  width: min(1200px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 22px 0 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  border-bottom: 1px solid var(--line);
-}
-
-.brand-group {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.brand-mark {
-  width: 42px;
-  height: 42px;
-  border: 1px solid #0d0d0d;
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  font-size: 1.05rem;
-  background: #f0efe8;
-}
-
-.brand-name,
-.brand-sub {
-  display: block;
-}
-
-.brand-name {
-  font-size: 0.97rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.brand-sub {
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  font-size: 0.95rem;
-  color: var(--muted);
-}
-
-.main-nav a {
-  position: relative;
-}
-
-.main-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 1px;
-  background: var(--ink);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.2s ease;
-}
-
-.main-nav a:hover::after {
-  transform: scaleX(1);
-}
-
-.primary-btn,
-.primary-link,
-.action-btn {
-  background: var(--ink);
-  color: #fff;
-  border: 1px solid var(--ink);
-  padding: 0.82rem 1.35rem;
-  cursor: pointer;
-  transition: 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.primary-btn:hover,
-.primary-link:hover,
-.action-btn:hover {
-  background: var(--accent);
-}
-
-.menu-btn {
-  display: none;
-  border: 1px solid var(--ink);
-  background: transparent;
-  width: 44px;
-  height: 44px;
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-
-.section-shell {
-  width: min(1200px, calc(100% - 48px));
-  margin: 0 auto;
-}
-
-.hero {
-  padding: 64px 0 40px;
-}
-
-.eyebrow {
-  margin: 0 0 18px;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.72rem;
-  color: var(--muted);
-}
-
-.hero-copy {
-  max-width: 840px;
-}
-
-.hero-copy h1 {
-  margin: 0 0 20px;
-  font-size: clamp(2.6rem, 5vw, 5rem);
-  line-height: 0.97;
-  letter-spacing: -0.05em;
-}
-
-.lead {
-  max-width: 760px;
-  margin: 0;
-  font-size: 1.12rem;
-  color: var(--muted);
-}
-
-.cta-row {
-  margin-top: 28px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.primary-link,
-.secondary-link {
-  font-weight: 600;
-}
-
-.secondary-link {
-  border: 1px solid rgba(17, 17, 17, 0.2);
-  background: transparent;
-  padding: 0.82rem 1.35rem;
-}
-
-.process {
-  padding: 18px 0 12px;
-}
-
-.step-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.step-card {
-  min-height: 160px;
-  background: rgba(255, 255, 255, 0.3);
-  border: 1px solid var(--line);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 24px 18px;
-}
-
-.step-number {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 18px;
-}
-
-.step-title {
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-
-.two-way,
-.modular,
-.how-it-works,
-.approach,
-.contact-form-section {
-  padding-top: 90px;
-}
-
-.section-header {
-  max-width: 860px;
-  margin-bottom: 30px;
-}
-
-.section-header.centered {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-.section-header h2 {
-  margin: 0 0 16px;
-  font-size: clamp(2rem, 3vw, 3.2rem);
-  letter-spacing: -0.05em;
-  line-height: 1.05;
-}
-
-.section-header p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1.05rem;
-}
-
-.business-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
-}
-
-.business-card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  padding: 28px 26px 22px;
-  box-shadow: var(--shadow);
-}
-
-.business-card.strong {
-  background: #eef2f7;
-}
-
-.arrow {
-  font-size: 2.2rem;
-  margin-bottom: 12px;
-}
-
-.business-card h3 {
-  margin: 0 0 8px;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--muted);
-}
-
-.business-card h4 {
-  margin: 0 0 14px;
-  font-size: 2rem;
-  letter-spacing: -0.04em;
-}
-
-.business-card p {
-  margin: 0 0 18px;
-  color: var(--muted);
-}
-
-.business-card ul {
-  margin: 0 0 24px;
-  padding-left: 20px;
-  color: var(--ink);
-  line-height: 1.8;
-}
-
-.text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-}
-
-.modular-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.service-card {
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid var(--line);
-  padding: 22px 18px 20px;
-}
-
-.service-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border: 1px solid var(--ink);
-  margin-bottom: 20px;
-  font-size: 1.8rem;
-}
-
-.service-number {
-  color: var(--muted);
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.service-card h3 {
-  margin: 0 0 12px;
-  font-size: 1.7rem;
-  letter-spacing: -0.04em;
-}
-
-.service-card p {
-  margin: 0 0 18px;
-  color: var(--muted);
-}
-
-.service-card small {
-  display: block;
-  color: var(--ink);
-  font-weight: 700;
-}
-
-.module-note {
-  text-align: center;
-  color: var(--muted);
-  margin: 28px auto 0;
-  max-width: 900px;
-}
-
-.steps-vertical {
-  display: grid;
-  gap: 18px;
-}
-
-.workflow-step {
-  border-top: 1px solid var(--line);
-  padding-top: 18px;
-}
-
-.step-wrap {
-  display: flex;
-  align-items: flex-start;
-  gap: 22px;
-}
-
-.workflow-count {
-  display: inline-flex;
-  width: 52px;
-  height: 52px;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  border: 1px solid var(--ink);
-  background: rgba(255, 255, 255, 0.4);
-}
-
-.workflow-step h3 {
-  margin: 0 0 6px;
-  font-size: 1.8rem;
-  letter-spacing: -0.04em;
-}
-
-.workflow-step p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.consultation-wrap {
-  margin-top: 32px;
-  text-align: center;
-}
-
-.action-btn {
-  font-size: 1rem;
-  padding: 0.95rem 1.7rem;
-}
-
-.approach-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.approach-card {
-  background: #f6f5f0;
-  border: 1px solid var(--line);
-  padding: 24px 20px;
-}
-
-.approach-tag {
-  display: inline-block;
-  font-weight: 700;
-  color: var(--muted);
-  margin-bottom: 18px;
-  letter-spacing: 0.12em;
-}
-
-.approach-card h3 {
-  margin: 0 0 10px;
-  font-size: 2rem;
-  letter-spacing: -0.04em;
-}
-
-.approach-card p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.contact-form-section {
-  padding-bottom: 90px;
-}
-
-.inquiry-form {
-  background: rgba(255, 255, 255, 0.45);
-  border: 1px solid var(--line);
-  padding: 26px;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.form-grid-full {
-  margin-top: 20px;
-  grid-template-columns: 1fr;
-}
-
-.inquiry-form label {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-weight: 600;
-}
-
-.inquiry-form input,
-.inquiry-form select,
-.inquiry-form textarea {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--line);
-  padding: 0.9rem 1rem;
-  color: var(--ink);
-}
-
-.inquiry-form textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
-.services-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  margin-top: 24px;
-  margin-bottom: 12px;
-}
-
-.checkbox-group {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  flex-direction: row !important;
-  font-weight: 500 !important;
-}
-
-.checkbox-group input {
-  width: 18px;
-  height: 18px;
-}
-
-.form-footer {
-  margin-top: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.form-footer p {
-  margin: 0;
-  max-width: 650px;
-  color: var(--muted);
-}
-
-.form-summary {
-  margin-top: 24px;
-  border-top: 1px solid var(--line);
-  padding-top: 18px;
-  min-height: 46px;
-  color: var(--ink);
-  white-space: pre-line;
-}
-
-.site-footer {
-  width: min(1200px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 30px 0 54px;
-  border-top: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.footer-brand-group {
-  align-items: center;
-}
-
-.footer-brand p,
-.footer-meta p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.footer-cta a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  border: 1px solid var(--ink);
-  padding: 0.82rem 1.2rem;
-}
-
-.footer-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.footer-line {
-  font-weight: 700;
-  color: var(--ink) !important;
-}
-
-.copyright {
-  margin-top: 8px !important;
-}
-
-@media (max-width: 980px) {
-  .main-nav {
-    display: none;
+const translations = {
+  ko: {
+    navServices:"서비스",navProcess:"진행 방식",navAbout:"소개",navContact:"문의",navCta:"사업 의뢰하기",
+    eyebrow:"GLOBAL BUSINESS INTELLIGENCE & PARTNER DEVELOPMENT",
+    heroTitle:'필요에서 출발해,<br><span>글로벌 파트너</span>를 찾습니다.',
+    heroLead:"C-Cube는 한국과 해외의 기업을 연결합니다. 구체적인 사업 수요를 바탕으로 기업을 발굴하고, 정보를 검토하며, 접촉과 거래 지원까지 단계별로 돕습니다.",
+    heroCta:'사업 수요 전달하기 <span aria-hidden="true">↗</span>',heroSecondary:"서비스 살펴보기",
+    heroProof1:"수요 기반 조사",heroProof2:"근거 중심 검토",heroProof3:"단계별 지원",
+    directionEyebrow:"TWO-WAY GLOBAL BUSINESS",directionTitle:"어느 방향의 파트너를 찾고 계십니까?",directionLead:"해외에서 한국으로, 한국에서 해외로. 고객의 목적에 맞춰 조사 방향을 설계합니다.",
+    inboundKicker:"FOR INTERNATIONAL BUSINESSES",inboundTitle:"한국 기업 찾기",inboundText:"한국의 제조기업, OEM·ODM 파트너, 소재·부품 공급사와 전문 기술기업을 발굴합니다.",inboundBullet1:"제조사·공급기업 조사",inboundBullet2:"후보 비교 및 추가 검증",inboundBullet3:"한국 기업 접촉 및 미팅 지원",inboundCta:'한국 공급기업 의뢰하기 <span>→</span>',
+    outboundKicker:"FOR KOREAN BUSINESSES",outboundTitle:"해외 파트너 찾기",outboundText:"해외 공급처, 수입사·유통사, 잠재 바이어와 기술·사업 협력 파트너를 발굴합니다.",outboundBullet1:"해외 공급처 및 제조사 조사",outboundBullet2:"수출 바이어·유통사 발굴",outboundBullet3:"해외기업 접촉 및 거래 지원",outboundCta:'해외 파트너 의뢰하기 <span>→</span>',
+    servicesEyebrow:"MODULAR SERVICES",servicesTitle:"필요한 단계부터 시작하세요.",servicesLead:"기업 조사만 의뢰하거나, 검증·접촉·지속 지원으로 확장할 수 있습니다.",
+    service1Title:"Search",service1Sub:"기업 조사 및 후보 리스트",service1Text:"요구조건에 맞는 기업을 조사하고 공개정보, 출처, 제품·기술 정보를 정리합니다.",service1Deliverable:"산출물 · 후보 리스트 및 비교표",
+    service2Title:"Verify",service2Sub:"후보 검토 및 추가 검증",service2Text:"합의된 기준에 따라 제품 적합성, 관련 문서, 확인 사항과 미확인 위험을 검토합니다.",service2Deliverable:"산출물 · 적합성 검토 보고서",
+    service3Title:"Connect",service3Sub:"접촉 및 비즈니스 연결",service3Text:"고객 직접 접촉 또는 승인된 범위의 초기 연락, 회신 확인, 미팅 조율을 지원합니다.",service3Deliverable:"산출물 · 접촉 결과 및 후속 조치",
+    service4Title:"Support",service4Sub:"지속적인 거래 커뮤니케이션",service4Text:"견적·샘플 문의, 미팅, 파트너 연락과 거래 진행 현황을 지속적으로 관리합니다.",service4Deliverable:"산출물 · 정기 업무 및 진행 보고",
+    serviceNote:"각 단계는 독립적으로 의뢰할 수 있습니다. 업무 범위, 산출물, 일정 및 비용은 프로젝트별로 사전 합의합니다.",
+    processEyebrow:"HOW IT WORKS",processTitle:"사업 수요를<br>실행 가능한 기회로.",processLead:"처음부터 모든 것을 맡길 필요는 없습니다. 필요한 결과를 정하고, 단계별로 진행합니다.",processCta:"프로젝트 상담하기",
+    process1Title:"요구사항 정의",process1Text:"제품, 기술, 시장, 목표 국가 및 핵심 조건을 구체화합니다.",process2Title:"조사 범위와 견적 합의",process2Text:"대상 범위, 확인 수준, 산출물, 일정과 비용을 합의합니다.",process3Title:"조사 및 결과 보고",process3Text:"출처를 기록하고 확인된 사실과 미확인 정보를 구분해 보고합니다.",process4Title:"다음 단계 선택",process4Text:"고객이 직접 진행하거나 추가 검증, 접촉, 지속 지원을 선택합니다.",
+    principlesEyebrow:"OUR APPROACH",principlesTitle:"정보의 양보다, 적합성과 근거를.",principlesLead:"글로벌 비즈니스의 첫 단계는 더 많은 기업을 보는 것이 아니라, 필요한 기업을 제대로 이해하는 것입니다.",
+    principle1Title:"Need-first",principle1Text:"고객의 실제 사업 목적과 요구조건에서 조사를 시작합니다.",principle2Title:"Evidence-based",principle2Text:"가능한 정보의 출처와 확인 범위를 명확히 합니다.",principle3Title:"Flexible by design",principle3Text:"고객이 필요한 서비스 단계와 범위를 선택할 수 있습니다.",
+    contactEyebrow:"START WITH A BUSINESS NEED",contactTitle:"어떤 파트너를 찾고 계십니까?",contactLead:"찾으려는 제품·기술·기업 유형과 목표 시장을 알려주세요. 요구사항을 검토해 적합한 조사 범위와 서비스 단계를 제안하겠습니다.",
+    contactAssurance:"문의 내용은 프로젝트 범위를 검토하기 위한 자료로 사용됩니다. 실제 접수·이메일 발송 기능은 배포 전 별도로 연결해야 합니다.",
+    formDirectionLabel:"사업 방향",formInbound:"해외 고객 → 한국 기업",formOutbound:"한국 고객 → 해외 기업",formPartnerLabel:"찾는 파트너 유형",
+    partnerSupplier:"공급처·제조사",partnerBuyer:"바이어·수입사·유통사",partnerTechnology:"기술·공동개발 파트너",partnerBusiness:"기타 사업 파트너",
+    formIndustryLabel:"제품·기술·산업",formIndustryPlaceholder:"예: 산업용 부품",formMarketLabel:"목표 국가·시장",formMarketPlaceholder:"예: 독일, 미국",
+    formStageLabel:"필요한 서비스",stageSearch:"Search — 후보 조사",stageVerify:"Verify — 추가 검증",stageConnect:"Connect — 접촉 및 미팅",stageSupport:"Support — 지속 지원",stageConsult:"상담 후 결정",
+    formDetailsLabel:"요구사항",formDetailsPlaceholder:"제품 규격, 수량, 구매 목적, 희망 일정 등을 적어주세요.",formSubmit:'문의 내용 만들기 <span aria-hidden="true">↗</span>',formHelp:"제출 버튼을 누르면 문의 내용이 정리됩니다. 이 MVP는 아직 서버로 전송하지 않습니다.",
+    closingEyebrow:"C-CUBE NICHERESOURCE",closingTitle:"Find the need. Discover the partner.",closingCta:'사업 수요 전달하기 <span>↗</span>',footerText:"글로벌 기업 발굴 · 검증 · 연결 · 거래지원",disclaimer:"조사 결과는 확보 가능한 정보와 합의된 조사 범위에 기반합니다. 공급능력, 제3자의 회신 또는 거래 성사를 보장하지 않습니다.",
+    statusReady:"문의 내용이 아래에 정리되었습니다. 복사하여 이메일 또는 별도 문의 채널로 보내세요.",statusCopied:"문의 내용이 복사되었습니다.",statusCopyFail:"문의 내용이 표시되었습니다. 내용을 선택해 복사해 주세요.",
+    dirInbound:"해외 고객 → 한국 기업",dirOutbound:"한국 고객 → 해외 기업",typeSupplier:"공급처·제조사",typeBuyer:"바이어·수입사·유통사",typeTechnology:"기술·공동개발 파트너",typeBusiness:"기타 사업 파트너",stSearch:"후보 조사",stVerify:"추가 검증",stConnect:"접촉 및 미팅",stSupport:"지속 지원",stConsult:"상담 후 결정"
+  },
+  en: {
+    navServices:"Services",navProcess:"How It Works",navAbout:"Our Approach",navContact:"Contact",navCta:"Submit a Need",
+    eyebrow:"GLOBAL BUSINESS INTELLIGENCE & PARTNER DEVELOPMENT",
+    heroTitle:'Start with a need.<br>Find your <span>global partner.</span>',
+    heroLead:"C-Cube connects businesses in Korea and around the world. We identify relevant companies based on your business needs, review available evidence, and support outreach and ongoing business coordination.",
+    heroCta:'Submit a Business Need <span aria-hidden="true">↗</span>',heroSecondary:"Explore Services",
+    heroProof1:"Need-based research",heroProof2:"Evidence-led review",heroProof3:"Step-by-step support",
+    directionEyebrow:"TWO-WAY GLOBAL BUSINESS",directionTitle:"Where do you need to find a partner?",directionLead:"From overseas to Korea, and from Korea to global markets. We tailor the research direction to your business objective.",
+    inboundKicker:"FOR INTERNATIONAL BUSINESSES",inboundTitle:"Find Korean Partners",inboundText:"Discover Korean manufacturers, OEM/ODM partners, materials and component suppliers, and specialized technology companies.",inboundBullet1:"Manufacturer and supplier research",inboundBullet2:"Candidate comparison and further qualification",inboundBullet3:"Korean supplier outreach and meeting support",inboundCta:'Find Korean Suppliers <span>→</span>',
+    outboundKicker:"FOR KOREAN BUSINESSES",outboundTitle:"Find Global Partners",outboundText:"Discover overseas suppliers, importers, distributors, potential buyers, and technology or strategic business partners.",outboundBullet1:"Overseas supplier and manufacturer research",outboundBullet2:"Export buyer and distributor discovery",outboundBullet3:"Overseas outreach and business support",outboundCta:'Find Global Partners <span>→</span>',
+    servicesEyebrow:"MODULAR SERVICES",servicesTitle:"Start with the step you need.",servicesLead:"Engage us for company research alone, then add qualification, outreach, or ongoing support when needed.",
+    service1Title:"Search",service1Sub:"Company research and longlist",service1Text:"We research companies against your requirements and organize available company, product, and source information.",service1Deliverable:"Deliverable · Candidate list and comparison",
+    service2Title:"Verify",service2Sub:"Shortlisting and qualification",service2Text:"We review product fit, available documents, confirmed facts, and outstanding questions against agreed criteria.",service2Deliverable:"Deliverable · Qualification report",
+    service3Title:"Connect",service3Sub:"Outreach and business introductions",service3Text:"We support direct outreach by your team or, with authorization, initial contact, response tracking, and meeting coordination.",service3Deliverable:"Deliverable · Outreach results and next steps",
+    service4Title:"Support",service4Sub:"Ongoing business communication",service4Text:"We help coordinate quotation and sample requests, meetings, partner communication, and transaction follow-up.",service4Deliverable:"Deliverable · Activity and progress reports",
+    serviceNote:"Each stage can be commissioned separately. Scope, deliverables, timing, and fees are agreed for each project.",
+    processEyebrow:"HOW IT WORKS",processTitle:"Turn a business need<br>into an actionable opportunity.",processLead:"You do not need to outsource everything at once. Define the result you need and proceed step by step.",processCta:"Discuss a Project",
+    process1Title:"Define requirements",process1Text:"Clarify the product, technology, market, target country, and essential criteria.",process2Title:"Agree on scope and fees",process2Text:"Confirm the target scope, verification level, deliverables, timeline, and budget.",process3Title:"Research and report",process3Text:"Record sources and distinguish confirmed information from items that remain unverified.",process4Title:"Choose the next step",process4Text:"Proceed independently or commission further verification, outreach, or ongoing support.",
+    principlesEyebrow:"OUR APPROACH",principlesTitle:"Relevance and evidence over volume.",principlesLead:"Global business starts not with the largest list of companies, but with a clear understanding of the right ones.",
+    principle1Title:"Need-first",principle1Text:"We begin with your actual business objective and requirements.",principle2Title:"Evidence-based",principle2Text:"We make information sources and verification scope clear.",principle3Title:"Flexible by design",principle3Text:"You choose the service stage and scope that fit your needs.",
+    contactEyebrow:"START WITH A BUSINESS NEED",contactTitle:"What kind of partner are you looking for?",contactLead:"Tell us about the product, technology, company type, and target market. We will review your requirements and suggest an appropriate research scope and service level.",
+    contactAssurance:"Your inquiry helps us assess the project scope. Live submission and email delivery must be connected separately before launch.",
+    formDirectionLabel:"Business direction",formInbound:"Overseas client → Korean companies",formOutbound:"Korean client → overseas companies",formPartnerLabel:"Partner type",
+    partnerSupplier:"Supplier or manufacturer",partnerBuyer:"Buyer, importer, or distributor",partnerTechnology:"Technology or co-development partner",partnerBusiness:"Other business partner",
+    formIndustryLabel:"Product, technology, or industry",formIndustryPlaceholder:"e.g. industrial components",formMarketLabel:"Target country or market",formMarketPlaceholder:"e.g. Germany, United States",
+    formStageLabel:"Service needed",stageSearch:"Search — company research",stageVerify:"Verify — further qualification",stageConnect:"Connect — outreach and meetings",stageSupport:"Support — ongoing assistance",stageConsult:"Discuss and decide",
+    formDetailsLabel:"Requirements",formDetailsPlaceholder:"Share specifications, quantity, business objective, timeline, and other criteria.",formSubmit:'Prepare Inquiry <span aria-hidden="true">↗</span>',formHelp:"Submit will prepare an inquiry summary. This MVP does not yet send data to a server.",
+    closingEyebrow:"C-CUBE NICHERESOURCE",closingTitle:"Find the need. Discover the partner.",closingCta:'Submit a Business Need <span>↗</span>',footerText:"Global discovery · Evaluation · Connection · Business support",disclaimer:"Research is based on available information and the agreed scope. Supplier performance, third-party responses, and successful transactions are not guaranteed.",
+    statusReady:"Your inquiry summary is ready. Copy it into an email or your preferred contact channel.",statusCopied:"Inquiry text copied.",statusCopyFail:"Your inquiry is shown below. Select and copy the text.",
+    dirInbound:"Overseas client → Korean companies",dirOutbound:"Korean client → overseas companies",typeSupplier:"Supplier or manufacturer",typeBuyer:"Buyer, importer, or distributor",typeTechnology:"Technology or co-development partner",typeBusiness:"Other business partner",stSearch:"Company research",stVerify:"Further qualification",stConnect:"Outreach and meetings",stSupport:"Ongoing support",stConsult:"Discuss and decide"
   }
+};
 
-  .menu-btn {
-    display: inline-block;
-  }
-
-  .main-nav.mobile-open {
-    position: absolute;
-    top: 78px;
-    left: 24px;
-    right: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid var(--line);
-    padding: 18px 14px;
-    box-shadow: var(--shadow);
-  }
-
-  .step-grid,
-  .business-grid,
-  .modular-grid,
-  .approach-grid,
-  .form-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+let currentLang = "ko";
+const langToggle = document.getElementById("langToggle");
+function setLanguage(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    if (translations[lang][key] !== undefined) el.innerHTML = translations[lang][key];
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+    if (translations[lang][key] !== undefined) el.placeholder = translations[lang][key];
+  });
+  langToggle.textContent = lang === "ko" ? "EN" : "KO";
+  langToggle.setAttribute("aria-label", lang === "ko" ? "Switch to English" : "한국어로 전환");
+  document.title = lang === "ko" ? "C-Cube NicheResource | 글로벌 비즈니스 파트너" : "C-Cube NicheResource | Global Business Partners";
+  document.getElementById("formStatus").textContent = translations[lang].formHelp;
 }
+langToggle.addEventListener("click", () => setLanguage(currentLang === "ko" ? "en" : "ko"));
 
-@media (max-width: 700px) {
-  .topbar {
-    width: min(100% - 28px, 1200px);
-  }
+const menuToggle = document.getElementById("menuToggle");
+const mobileNav = document.getElementById("mobileNav");
+menuToggle.addEventListener("click", () => {
+  const open = mobileNav.hidden;
+  mobileNav.hidden = !open;
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.textContent = open ? "×" : "☰";
+});
+mobileNav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+  mobileNav.hidden = true;
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.textContent = "☰";
+}));
 
-  .section-shell,
-  .site-footer {
-    width: min(100% - 28px, 1200px);
-  }
+document.querySelectorAll("[data-direction]").forEach(link => {
+  link.addEventListener("click", () => {
+    const direction = document.getElementById("direction");
+    direction.value = link.dataset.direction;
+  });
+});
 
-  .step-grid,
-  .business-grid,
-  .modular-grid,
-  .approach-grid,
-  .form-grid {
-    grid-template-columns: 1fr;
+document.getElementById("inquiryForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  const form = new FormData(event.currentTarget);
+  const t = translations[currentLang];
+  const text = [
+    "C-Cube NicheResource — Business Inquiry",
+    `${t.formDirectionLabel}: ${form.get("direction") === "inbound" ? t.dirInbound : t.dirOutbound}`,
+    `${t.formPartnerLabel}: ${({supplier:t.typeSupplier,buyer:t.typeBuyer,technology:t.typeTechnology,business:t.typeBusiness})[form.get("partnerType")]}`,
+    `${t.formIndustryLabel}: ${form.get("industry") || "-"}`,
+    `${t.formMarketLabel}: ${form.get("market") || "-"}`,
+    `${t.formStageLabel}: ${({search:t.stSearch,verify:t.stVerify,connect:t.stConnect,support:t.stSupport,consult:t.stConsult})[form.get("stage")]}`,
+    `${t.formDetailsLabel}: ${form.get("details") || "-"}`
+  ].join("\n");
+  const status = document.getElementById("formStatus");
+  status.textContent = text + "\n\n" + t.statusReady;
+  try {
+    await navigator.clipboard.writeText(text);
+    status.textContent = t.statusCopied + "\n\n" + text;
+  } catch (_) {
+    status.textContent = t.statusCopyFail + "\n\n" + text;
   }
-
-  .hero {
-    padding-top: 42px;
-  }
-
-  .hero-copy h1 {
-    line-height: 1;
-  }
-
-  .cta-row,
-  .form-footer,
-  .site-footer {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .primary-btn,
-  .primary-link,
-  .action-btn,
-  .secondary-link,
-  .footer-cta a {
-    width: 100%;
-  }
-}
+});
+document.getElementById("year").textContent = new Date().getFullYear();
