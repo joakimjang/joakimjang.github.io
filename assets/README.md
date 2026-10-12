@@ -10,7 +10,7 @@ A bilingual Korean/English static website for GitHub Pages.
 - AJAX contact form routed to `joachimjang@gmail.com` through FormSubmit, with an email-client fallback if the service fails
 
 ## Contact form email delivery
-The form submits to FormSubmit AJAX because GitHub Pages serves static files and cannot process form submissions on its own. The requested success popup appears only after FormSubmit reports that it accepted the submission; this does not independently prove final inbox delivery.
+The form submits to the fixed FormSubmit AJAX endpoint `https://formsubmit.co/ajax/joachimjang@gmail.com`. This endpoint determines the notification recipient (C-Cube). The visitor email is used only as `Reply-To`, so replying to the notification reaches the customer. The requested success popup appears only after FormSubmit reports acceptance; this does not independently prove final inbox delivery.
 
 1. Deploy the updated files to GitHub Pages.
 2. Open the live site and submit one test inquiry using a valid name and email address. Keep in mind that the success popup means the form service accepted the submission, not that you personally confirmed delivery to the inbox.
@@ -18,7 +18,7 @@ The form submits to FormSubmit AJAX because GitHub Pages serves static files and
 4. Click the confirmation/activation link. FormSubmit requires this one-time verification before normal email delivery begins.
 5. Submit another test inquiry and confirm the message arrives.
 
-The form uses a third-party service. Do not collect sensitive or confidential information through this MVP form. Review FormSubmit's current terms and privacy practices before production use. If you prefer not to use this provider, replace it with another form backend.
+If a visitor appears to receive the inquiry itself, verify that the live GitHub Pages site has the latest `index.html` and `assets/script.js`; the fixed endpoint in both files must end in `joachimjang@gmail.com`. A message addressed to C-Cube may show the visitor in the Reply-To field; that is intentional and allows C-Cube to reply directly to the customer. The form uses a third-party service. Do not collect sensitive or confidential information through this MVP form. Review FormSubmit's current terms and privacy practices before production use. If you prefer not to use this provider, replace it with another form backend.
 
 ## Deploy to GitHub Pages
 1. Unzip this package.

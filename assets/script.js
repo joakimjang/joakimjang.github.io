@@ -104,18 +104,29 @@ document.querySelectorAll("[data-direction]").forEach(link => {
   });
 });
 
-// Submit via FormSubmit AJAX so the page can report service acceptance without redirecting.
+// Fixed notification recipient: C-Cube. The visitor's email is only used as Reply-To.
+const FORM_SUBMIT_ENDPOINT = "https://formsubmit.co/ajax/joachimjang@gmail.com";
 const inquiryForm = document.getElementById("inquiryForm");
+const senderEmailInput = document.getElementById("senderEmail");
+const replyToInput = document.getElementById("replyToAddress");
+
+// Keep the customer address in Reply-To so C-Cube can reply to the customer,
+// without changing the fixed destination of the inquiry notification.
+senderEmailInput.addEventListener("input", () => {
+  replyToInput.value = senderEmailInput.value.trim();
+});
 inquiryForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   if (!inquiryForm.reportValidity()) return;
+  replyToInput.value = senderEmailInput.value.trim();
+
   const submitButton = inquiryForm.querySelector('button[type="submit"]');
   const status = document.getElementById("formStatus");
   const originalButtonHtml = submitButton.innerHTML;
   submitButton.disabled = true;
   submitButton.textContent = currentLang === "ko" ? "전송 중…" : "Sending…";
   try {
-    const response = await fetch("https://formsubmit.co/ajax/joachimjang@gmail.com", {
+    const response = await fetch(FORM_SUBMIT_ENDPOINT, {
       method: "POST",
       body: new FormData(inquiryForm),
       headers: { "Accept": "application/json" }
@@ -127,17 +138,19 @@ inquiryForm.addEventListener("submit", async (event) => {
     status.textContent = translations[currentLang].statusReady;
     alert("Your inquiry was sent to C-Cube NicheResource");
     inquiryForm.reset();
+    replyToInput.value = "";
   } catch (error) {
     status.textContent = translations[currentLang].statusCopyFail;
     const subject = encodeURIComponent("C-Cube NicheResource — Business Inquiry");
     const fields = Array.from(new FormData(inquiryForm).entries())
-      .filter(([key, value]) => key !== "_honey" && key !== "_captcha" && key !== "_template")
+      .filter(([key]) => !["_honey", "_captcha", "_template", "_replyto"].includes(key))
       .map(([key, value]) => `${key}: ${value}`).join("\n");
     const body = encodeURIComponent(fields);
+    // Fallback also addresses C-Cube, never the customer.
     window.location.href = `mailto:joachimjang@gmail.com?subject=${subject}&body=${body}`;
     alert(currentLang === "ko"
-      ? "웹 양식 전송이 완료되지 않았습니다. 이메일 초안을 열었습니다. 이메일 프로그램에서 직접 보내 주세요."
-      : "The web form could not be submitted. An email draft has been opened; please send it from your email app.");
+      ? "웹 양식 전송이 완료되지 않았습니다. C-Cube로 보낼 이메일 초안을 열었습니다. 이메일 프로그램에서 직접 보내 주세요."
+      : "The web form could not be submitted. An email draft addressed to C-Cube has been opened; please send it from your email app.");
   } finally {
     submitButton.disabled = false;
     submitButton.innerHTML = originalButtonHtml;
