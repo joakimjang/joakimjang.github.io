@@ -150,6 +150,8 @@
           <div class="contact-assurance"><span>✓</span><p data-i18n="contactAssurance">문의는 이메일 접수 서비스를 통해 전달됩니다. 최초 이용 시 수신 이메일 인증이 필요할 수 있습니다.</p></div>
         </div>
         <form class="inquiry-form" id="inquiryForm" action="https://formsubmit.co/ajax/joachimjang@gmail.com" method="POST">
+          <!-- Fixed recipient is the action URL above; customer email is only the reply-to address. -->
+          <input type="hidden" name="_replyto" id="replyToAddress" value="">
           <input type="hidden" name="_subject" value="C-Cube NicheResource — New Business Inquiry">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
