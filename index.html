@@ -147,9 +147,16 @@
           <p class="eyebrow eyebrow-blue" data-i18n="contactEyebrow">START WITH A BUSINESS NEED</p>
           <h2 data-i18n="contactTitle">어떤 파트너를 찾고 계십니까?</h2>
           <p data-i18n="contactLead">찾으려는 제품·기술·기업 유형과 목표 시장을 알려주세요. 요구사항을 검토해 적합한 조사 범위와 서비스 단계를 제안하겠습니다.</p>
-          <div class="contact-assurance"><span>✓</span><p data-i18n="contactAssurance">문의 내용은 프로젝트 범위를 검토하기 위한 자료로 사용됩니다. 실제 접수·이메일 발송 기능은 배포 전 별도로 연결해야 합니다.</p></div>
+          <div class="contact-assurance"><span>✓</span><p data-i18n="contactAssurance">문의는 이메일 접수 서비스로 전달됩니다. 최초 1회 이메일 인증이 필요하며, 개인정보는 문의 처리 목적으로만 입력해 주세요.</p></div>
         </div>
-        <form class="inquiry-form" id="inquiryForm">
+        <form class="inquiry-form" id="inquiryForm" action="https://formsubmit.co/joachimjang@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="C-Cube NicheResource — New Business Inquiry">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="honeypot">
+          <div class="form-row">
+            <div><label for="senderName" data-i18n="formNameLabel">이름 / 회사명</label><input id="senderName" name="name" type="text" autocomplete="name" required data-i18n-placeholder="formNamePlaceholder" placeholder="이름 또는 회사명"></div>
+            <div><label for="senderEmail" data-i18n="formEmailLabel">이메일</label><input id="senderEmail" name="email" type="email" autocomplete="email" required data-i18n-placeholder="formEmailPlaceholder" placeholder="name@company.com"></div>
+          </div>
           <label for="direction" data-i18n="formDirectionLabel">사업 방향</label>
           <select id="direction" name="direction">
             <option value="inbound" data-i18n="formInbound">해외 고객 → 한국 기업</option>
@@ -176,8 +183,8 @@
           </select>
           <label for="details" data-i18n="formDetailsLabel">요구사항</label>
           <textarea id="details" name="details" rows="4" placeholder="제품 규격, 수량, 구매 목적, 희망 일정 등을 적어주세요." data-i18n-placeholder="formDetailsPlaceholder"></textarea>
-          <button class="button button-primary button-full" type="submit" data-i18n="formSubmit">문의 내용 만들기 <span aria-hidden="true">↗</span></button>
-          <p class="form-help" id="formStatus" role="status" aria-live="polite" data-i18n="formHelp">제출 버튼을 누르면 문의 내용이 정리됩니다. 이 MVP는 아직 서버로 전송하지 않습니다.</p>
+          <button class="button button-primary button-full" type="submit" data-i18n="formSubmit">문의 보내기 <span aria-hidden="true">↗</span></button>
+          <p class="form-help" id="formStatus" role="status" aria-live="polite" data-i18n="formHelp">문의 내용은 이메일 접수 서비스로 전송됩니다. 첫 제출 시 수신 이메일 인증이 필요할 수 있습니다.</p>
         </form>
       </div>
     </section>
