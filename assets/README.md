@@ -3,17 +3,17 @@
 A bilingual Korean/English static website for GitHub Pages.
 
 ## Included
-- Responsive landing page with improved body-text readability
+- Responsive landing page with larger, more readable body text and a more balanced heading hierarchy
 - Korean / English language toggle
 - Two-way global partner discovery services
 - Four service stages: Search, Verify, Connect, Support
-- Contact form routed to `joachimjang@gmail.com` through FormSubmit
+- AJAX contact form routed to `joachimjang@gmail.com` through FormSubmit, with an email-client fallback if the service fails
 
 ## Contact form email delivery
-The form posts to FormSubmit because GitHub Pages serves static files and cannot process form submissions on its own.
+The form submits to FormSubmit AJAX because GitHub Pages serves static files and cannot process form submissions on its own. The requested success popup appears only after FormSubmit reports that it accepted the submission; this does not independently prove final inbox delivery.
 
 1. Deploy the updated files to GitHub Pages.
-2. Open the live site and submit one test inquiry using a valid name and email address.
+2. Open the live site and submit one test inquiry using a valid name and email address. Keep in mind that the success popup means the form service accepted the submission, not that you personally confirmed delivery to the inbox.
 3. Check `joachimjang@gmail.com` (including Spam) for FormSubmit's first-use confirmation email.
 4. Click the confirmation/activation link. FormSubmit requires this one-time verification before normal email delivery begins.
 5. Submit another test inquiry and confirm the message arrives.
@@ -27,7 +27,7 @@ The form uses a third-party service. Do not collect sensitive or confidential in
 4. Under **Build and deployment**, choose **Deploy from a branch**.
 5. Choose branch `main` and folder `/(root)`, then save.
 6. Wait for the deployment to finish, then test the live site on desktop and mobile.
-7. Test Korean/English switching and submit a test contact form. Email delivery is not verified until you complete the FormSubmit activation step.
+7. Test Korean/English switching and submit a test contact form. Email delivery is not verified until you complete the FormSubmit activation step and confirm a test message arrives. If the AJAX request fails, the site opens a prefilled email draft as a fallback; the visitor must send it manually.
 
 ## Files
 - `index.html` — page structure and bilingual content; includes the form endpoint

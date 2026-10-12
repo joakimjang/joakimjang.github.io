@@ -25,9 +25,9 @@ const translations = {
     partnerSupplier:"공급처·제조사",partnerBuyer:"바이어·수입사·유통사",partnerTechnology:"기술·공동개발 파트너",partnerBusiness:"기타 사업 파트너",
     formIndustryLabel:"제품·기술·산업",formIndustryPlaceholder:"예: 산업용 부품",formMarketLabel:"목표 국가·시장",formMarketPlaceholder:"예: 독일, 미국",
     formStageLabel:"필요한 서비스",stageSearch:"Search — 후보 조사",stageVerify:"Verify — 추가 검증",stageConnect:"Connect — 접촉 및 미팅",stageSupport:"Support — 지속 지원",stageConsult:"상담 후 결정",
-    formDetailsLabel:"요구사항",formDetailsPlaceholder:"제품 규격, 수량, 구매 목적, 희망 일정 등을 적어주세요.",formSubmit:'문의 보내기 <span aria-hidden="true">↗</span>',formHelp:"문의 내용은 이메일 접수 서비스로 전송됩니다. 첫 제출 시 수신 이메일 인증이 필요할 수 있습니다.",
+    formDetailsLabel:"요구사항",formDetailsPlaceholder:"제품 규격, 수량, 구매 목적, 희망 일정 등을 적어주세요.",formSubmit:'문의 준비하기 <span aria-hidden="true">↗</span>',formHelp:"문의는 이메일 접수 서비스를 통해 전달됩니다. 최초 이용 시 수신 이메일 인증이 필요할 수 있습니다.",
     closingEyebrow:"C-CUBE NICHERESOURCE",closingTitle:"Find the need. Discover the partner.",closingCta:'사업 수요 전달하기 <span>↗</span>',footerText:"글로벌 기업 발굴 · 검증 · 연결 · 거래지원",disclaimer:"조사 결과는 확보 가능한 정보와 합의된 조사 범위에 기반합니다. 공급능력, 제3자의 회신 또는 거래 성사를 보장하지 않습니다.",
-    statusReady:"문의가 전송되었습니다.",statusCopied:"문의가 전송되었습니다.",statusCopyFail:"문의 전송에 실패했습니다. 잠시 후 다시 시도해 주세요.",
+    statusReady:"문의가 접수되었습니다. 최초 이용 시 이메일 인증이 필요할 수 있습니다.",statusCopied:"문의가 준비되었습니다.",statusCopyFail:"문의 전송에 실패했습니다. 이메일 프로그램으로 문의 초안을 열어 주세요.",
     dirInbound:"해외 고객 → 한국 기업",dirOutbound:"한국 고객 → 해외 기업",typeSupplier:"공급처·제조사",typeBuyer:"바이어·수입사·유통사",typeTechnology:"기술·공동개발 파트너",typeBusiness:"기타 사업 파트너",stSearch:"후보 조사",stVerify:"추가 검증",stConnect:"접촉 및 미팅",stSupport:"지속 지원",stConsult:"상담 후 결정"
   },
   en: {
@@ -56,9 +56,9 @@ const translations = {
     partnerSupplier:"Supplier or manufacturer",partnerBuyer:"Buyer, importer, or distributor",partnerTechnology:"Technology or co-development partner",partnerBusiness:"Other business partner",
     formIndustryLabel:"Product, technology, or industry",formIndustryPlaceholder:"e.g. industrial components",formMarketLabel:"Target country or market",formMarketPlaceholder:"e.g. Germany, United States",
     formStageLabel:"Service needed",stageSearch:"Search — company research",stageVerify:"Verify — further qualification",stageConnect:"Connect — outreach and meetings",stageSupport:"Support — ongoing assistance",stageConsult:"Discuss and decide",
-    formDetailsLabel:"Requirements",formDetailsPlaceholder:"Share specifications, quantity, business objective, timeline, and other criteria.",formSubmit:'Send Inquiry <span aria-hidden="true">↗</span>',formHelp:"Your inquiry is sent through an email form service. The first submission may require recipient email verification.",
+    formDetailsLabel:"Requirements",formDetailsPlaceholder:"Share specifications, quantity, business objective, timeline, and other criteria.",formSubmit:'Prepare Inquiry <span aria-hidden="true">↗</span>',formHelp:"Your inquiry is submitted through an email form service. One-time recipient verification may be required on first use.",
     closingEyebrow:"C-CUBE NICHERESOURCE",closingTitle:"Find the need. Discover the partner.",closingCta:'Submit a Business Need <span>↗</span>',footerText:"Global discovery · Evaluation · Connection · Business support",disclaimer:"Research is based on available information and the agreed scope. Supplier performance, third-party responses, and successful transactions are not guaranteed.",
-    statusReady:"Your inquiry has been submitted.",statusCopied:"Your inquiry has been submitted.",statusCopyFail:"Submission failed. Please try again shortly.",
+    statusReady:"Your inquiry was accepted by the form service. First-time email verification may still be required.",statusCopied:"Your inquiry is ready to send.",statusCopyFail:"The form service could not accept your inquiry. An email draft will open instead.",
     dirInbound:"Overseas client → Korean companies",dirOutbound:"Korean client → overseas companies",typeSupplier:"Supplier or manufacturer",typeBuyer:"Buyer, importer, or distributor",typeTechnology:"Technology or co-development partner",typeBusiness:"Other business partner",stSearch:"Company research",stVerify:"Further qualification",stConnect:"Outreach and meetings",stSupport:"Ongoing support",stConsult:"Discuss and decide"
   }
 };
@@ -104,5 +104,44 @@ document.querySelectorAll("[data-direction]").forEach(link => {
   });
 });
 
-// The inquiry form uses a hosted form endpoint (FormSubmit) to deliver submissions by email.
+// Submit via FormSubmit AJAX so the page can report service acceptance without redirecting.
+const inquiryForm = document.getElementById("inquiryForm");
+inquiryForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (!inquiryForm.reportValidity()) return;
+  const submitButton = inquiryForm.querySelector('button[type="submit"]');
+  const status = document.getElementById("formStatus");
+  const originalButtonHtml = submitButton.innerHTML;
+  submitButton.disabled = true;
+  submitButton.textContent = currentLang === "ko" ? "전송 중…" : "Sending…";
+  try {
+    const response = await fetch("https://formsubmit.co/ajax/joachimjang@gmail.com", {
+      method: "POST",
+      body: new FormData(inquiryForm),
+      headers: { "Accept": "application/json" }
+    });
+    const result = await response.json();
+    if (!response.ok || String(result.success).toLowerCase() !== "true") {
+      throw new Error(result.message || "Form submission failed");
+    }
+    status.textContent = translations[currentLang].statusReady;
+    alert("Your inquiry was sent to C-Cube NicheResource");
+    inquiryForm.reset();
+  } catch (error) {
+    status.textContent = translations[currentLang].statusCopyFail;
+    const subject = encodeURIComponent("C-Cube NicheResource — Business Inquiry");
+    const fields = Array.from(new FormData(inquiryForm).entries())
+      .filter(([key, value]) => key !== "_honey" && key !== "_captcha" && key !== "_template")
+      .map(([key, value]) => `${key}: ${value}`).join("\n");
+    const body = encodeURIComponent(fields);
+    window.location.href = `mailto:joachimjang@gmail.com?subject=${subject}&body=${body}`;
+    alert(currentLang === "ko"
+      ? "웹 양식 전송이 완료되지 않았습니다. 이메일 초안을 열었습니다. 이메일 프로그램에서 직접 보내 주세요."
+      : "The web form could not be submitted. An email draft has been opened; please send it from your email app.");
+  } finally {
+    submitButton.disabled = false;
+    submitButton.innerHTML = originalButtonHtml;
+  }
+});
+
 document.getElementById("year").textContent = new Date().getFullYear();

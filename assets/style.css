@@ -49,3 +49,48 @@ body{font-size:16px;line-height:1.75}
   .process-item p,.principles-grid p{font-size:15px}
 }
 @media(max-width:390px){.service-card>p:not(.service-subtitle){font-size:15px}}
+
+
+/* V3 readability pass: narrower hierarchy, larger body copy */
+body{font-size:17px;line-height:1.78}
+.eyebrow{font-size:13px;letter-spacing:1.5px;line-height:1.5}
+h1{font-size:clamp(38px,5.2vw,58px);line-height:1.16;letter-spacing:-1.8px}
+.hero-lead{font-size:18px;line-height:1.85}
+.section-heading h2,.process-intro h2,.contact-copy h2{font-size:clamp(30px,3.5vw,38px);line-height:1.3;letter-spacing:-.8px}
+.section-heading>p:last-child,.process-intro>p:not(.eyebrow),.contact-copy>p:not(.eyebrow){font-size:17px;line-height:1.85}
+.direction-card h3{font-size:23px;letter-spacing:-.4px}
+.direction-card>p:not(.card-kicker){font-size:16px;line-height:1.85;min-height:0}
+.direction-card ul{font-size:15px;line-height:1.9}
+.card-kicker{font-size:13px;letter-spacing:1px}
+.text-link{font-size:15px}
+.service-card h3{font-size:22px;letter-spacing:-.3px}
+.service-subtitle{font-size:14px;line-height:1.6}
+.service-card>p:not(.service-subtitle){font-size:16px;line-height:1.8}
+.deliverable{font-size:14px;line-height:1.7}
+.section-note{font-size:15px;line-height:1.8}
+.process-item h3{font-size:19px;line-height:1.5}
+.process-item p,.principles-grid p{font-size:16px;line-height:1.85}
+.principles-grid h3{font-size:21px}
+.contact-assurance p{font-size:15px;line-height:1.8}
+.inquiry-form label{font-size:16px;line-height:1.5}
+.inquiry-form input,.inquiry-form select,.inquiry-form textarea{font-size:16px;line-height:1.65;padding:13px 14px}
+.form-help{font-size:14px;line-height:1.8}
+.button{font-size:15px}
+.button-small{font-size:14px}
+.desktop-nav a,.mobile-nav a{font-size:14px}
+.footer-inner>p{font-size:14px}.copyright{font-size:13px}.footer-disclaimer{font-size:13px;line-height:1.8}
+@media(max-width:700px){
+  body{font-size:16px}
+  h1{font-size:clamp(35px,9vw,46px);letter-spacing:-1.2px}
+  .hero-lead{font-size:17px;line-height:1.8}
+  .section-heading h2,.process-intro h2,.contact-copy h2{font-size:30px}
+  .section-heading>p:last-child,.process-intro>p:not(.eyebrow),.contact-copy>p:not(.eyebrow){font-size:16px}
+  .direction-card h3{font-size:21px}
+  .direction-card>p:not(.card-kicker){font-size:16px}
+  .direction-card ul{font-size:15px}
+  .service-card h3{font-size:21px}
+  .service-subtitle{font-size:14px}
+  .service-card>p:not(.service-subtitle){font-size:15px}
+  .deliverable{font-size:13px}
+  .process-item p,.principles-grid p{font-size:15px}
+}
